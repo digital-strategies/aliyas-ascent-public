@@ -1,10 +1,67 @@
+![Aliya's Ascent Logo](./web/og-image.jpg)
+
 # Aliya's Ascent
 
-The source code of the game will be published at a later date.
+This is the source code of the game **Aliya's Ascent** which is available to play for free at http://ascent.lol/, on [Itch](https://digistrats.itch.io/aliyas-ascent) and [Steam](https://store.steampowered.com/app/2660930/Aliyas_Ascent/).
 
-The game is available at http://ascent.lol/
+### Open Source Version
 
-Note on achievement rewards: due to the nature of the NFT rewards, all NFTs you win will be airdropped to you at a later time.
+Due to the easter egg hunt nature of the game, some pieces of the original source code were removed in this version to keep it more interesting and fair 🙂
+
+### Engine
+
+The game is made with [Ren'Py](https://www.renpy.org/). You can refer to the [documentation](https://www.renpy.org/doc/html/) to learn more about the engine.
+
+### Setup / Development
+
+In order to run the game from source code, follow these steps:
+
+-   run the appropriate launcher for your OS (`renpy.sh`, `renpy.exe`, `renpy.app`)
+-   click `Preferences` -> `General` -> `Projects Directory` and select the `projects` folder inside this repository
+-   the `aliya` project should now appear in the `PROJECTS` section of the launcher
+-   you can then click `Launch Project` to run the game
+
+_**Note**: You may encounter errors due to some images / videos having been removed from this version of the game, but the game should still be playable._
+
+#### Achievement System
+
+The original game contains many achievements (a.k.a. Memories) to unlock. To add your own, you can use the built-in achievement system that can also be tied together with the in-game gallery.
+
+First, trigger an achievement unlock for your achievement somewhere in the game. This can be done in 2 ways:
+
+1. By calling the `unlock_achievement` function, e.g.
+
+```python
+# example.rpy
+label example:
+    menu:
+        "Can I have an achievement?":
+            $ unlock_achievement("Achievement Name")
+```
+
+2. By calling the `UnlockAchievement` action, e.g.
+
+```python
+# KbuNYgEO
+screen example_screen():
+    imagemap:
+        ground "image with achievement"
+        hotspot (0, 0, 100, 100) action UnlockAchievement("Achievement Name")
+```
+
+Then you can add an image associated with the achievement into the `game/scripts/gallery.rpy` file, e.g.
+
+```python
+# gallery.rpy
+init 2 python:
+    gallery_items = []
+
+    gallery_items.append(GalleryItem(path="images/gallery/example.png", blur=True, achievement="Achievement Name"))
+```
+
+Now the gallery item will be automatically made available when the achievement is unlocked.
+
+To keep organized, you can put all gallery images into the `images/gallery/` directory.
 
 ## Credits
 
@@ -192,3 +249,5 @@ X
 [The Entire Treasure Community](https://x.com/Treasure_DAO)
 
 **No animals were hurt in the making of this game**
+
+3R7vg6UUow
