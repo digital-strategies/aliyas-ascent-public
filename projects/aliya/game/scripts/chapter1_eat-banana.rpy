@@ -4,29 +4,6 @@ screen toad_eyes():
     imagemap:
         ground "toad_mov movie"
 
-
-label ch1_eat_bana:
-
-    scene transparent
-    scene black onlayer bglayer
-    show screen docks_boat_pano onlayer bglayer
-    with dissolve
-
-    voice "aliya/Aliya_Chapter-1_VS-5_2.ogg"
-    aliya "That was the fastest I have ever run in my life."
-    voice "aliya/Aliya_Chapter-1_VS-5_3.ogg"
-    aliya "I don’t think they saw my face, did they?"
-    voice "aliya/Aliya_Chapter-1_VS-5_4.ogg"
-    aliya "Better lie low for now."
-
-    $ vendor_angry = True
-
-    if smol_banana == True:
-        jump ch1_eat_ban
-    else:
-        jump ch1_map_menu
-
-
 label ch1_eat_ban:
 
     $ smol_banana = True
@@ -53,10 +30,10 @@ label vs_options2:
 label ch1_eat_ban_1:
 # Chapter 1 BAN-1
     scene black onlayer bglayer
-    scene transparent
-    show screen docks_boat_pano onlayer bglayer
+    scene docks-blurred-static with dissolve
 
     show aliya surprised1 at hover
+    with dissolve
 
     voice "aliya/Aliya_Chapter-1_BAN-1_1.ogg"
     aliya "Finally, no one to bother me. Come to Aliya!"
@@ -72,7 +49,7 @@ label ch1_eat_ban_1:
 
     stop sound
 
-    scene white-bg with Dissolve(5.0)
+    scene white-bg with Dissolve(1.0)
 
 # 🎥Chapter 1 MOV-3
 
@@ -82,23 +59,23 @@ label ch1_eat_ban_1:
     with dissolve
 
 
-    toad "{cps=18.8}Pst, hey Aliya! Remember me? Croaaak...{/cps}{w=1.2}{nw}"
-    toad "{cps=73.3}It's your friend, Fred{/cps}{w=1}{nw}"
-    aliya "{cps=13.5}Fred?{/cps}{w=1.2}{nw}"
-    toad "{cps=88.2}Yeah, Croaaak...{/cps}{w=1.2}{nw}"
-    aliya "{cps=16.2}Where am I?{/cps}{w=1.2}{nw}"
-    toad "{cps=43.6}When are you coming to Croakshire?{/cps}{w=1.2}{nw}"
-    aliya "{cps=21.7}What?{/cps}{w=1.8}{nw}"
-    toad "{cps=39.2}Croakshire! Croaaaak{/cps}{w=1.6}{nw}"
-    aliya "{cps=12.6}Get me out of here... Help!{/cps}{w=1}{nw}"
+    toad "Pst, hey Aliya!{w=0.5} Remember me?{w=1.0} Croaaak...{w=0.7}{nw}"
+    toad "It's your friend, Fred.{w=0.8}{nw}"
+    aliya "Fred?{w=1.2}{nw}"
+    toad "Yeah, Croaaak...{w=1.2}{nw}"
+    aliya "Where am I?{w=1.2}{nw}"
+    toad "When are you coming to Croakshire?{w=1.2}{nw}"
+    aliya "What?{w=1.5}{nw}"
+    toad "Croakshire! Croaaaak...{w=1.6}{nw}"
+    aliya "Get me out of here...{w=1} Help!{w=1}{nw}"
     $ set_show_nav_reminder(delay=2.0)
-    toad "{cps=14.4}You're staying with us! Right?{/cps}{w=2}{nw}"
+    toad "You're staying with us!{w=0.7} Right?{w=2}{nw}"
 
 # Chapter 1 BAN-2
 label ch1_eat_ban_wake_up:
     scene transparent
     scene black onlayer bglayer
-    show screen docks_boat_pano onlayer bglayer
+    scene docks-blurred-static
     show aliya fearful2 at hover
     with dissolve
 
@@ -131,7 +108,7 @@ label ch1_eat_ban_stop:
 
     scene transparent
     scene black onlayer bglayer
-    show screen docks_boat_pano onlayer bglayer
+    scene docks-blurred-static
     show aliya neutral5 at hover
 
     voice "aliya/Aliya_Chapter-1_BAN-5.ogg"
@@ -150,7 +127,7 @@ label ch1_eat_ban_stop:
 label ch1_eat_ban_cont:
     scene transparent
     scene black onlayer bglayer
-    show screen docks_boat_pano onlayer bglayer
+    scene docks-blurred-static
     show aliya neutral5 at hover
 
     play sound "audio/eating-banana.ogg" volume 0.35

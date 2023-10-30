@@ -172,33 +172,26 @@ label vs_caught:
     play sound "audio/running-footsteps.ogg" volume 0.9
     storyteller "You muster all your strength to run out of there as fast as you can."
 
-    scene docks-blurred-static onlayer bglayer
-    scene docks-blurred-static with dissolve
+    scene black onlayer bglayer
+    scene docks-blurred-static
+    with dissolve
 
     play sound "audio/catch-breath.ogg" volume 0.35
     pause 6.0
-    
+
     play sound "audio/docks.ogg" volume 0.2 loop
 
     voice "aliya/Aliya_Chapter-1_VS-5_2.ogg"
     aliya "That was the fastest I have ever run in my life."
-    
+
     $ renpy.music.clear_all_channels()
     $ start_bg_music1()
 
-    scene black onlayer bglayer
-    scene transparent
-    show screen docks_boat_pano onlayer bglayer
-
     voice "aliya/Aliya_Chapter-1_VS-5_3.ogg"
-    scene black onlayer bglayer
-    scene transparent
-    show screen docks_boat_pano onlayer bglayer
-    with dissolve
     aliya "I don’t think they saw my face, did they?"
     voice "aliya/Aliya_Chapter-1_VS-5_4.ogg"
     aliya "Better lie low for now."
- 
+
     stop sound
 
     $ vendor_angry = True
