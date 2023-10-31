@@ -25,7 +25,7 @@ define gui.show_name = True
 
 define config.version = "1.0"
 
-define config.build_uid = "20231016.06.26"
+define config.build_uid = "20231031.22.04"
 
 
 ## Text that is placed on the game's about screen. Place the text between the
@@ -189,7 +189,7 @@ default preferences.afm_time = 15
 ## This generally should not be changed, and if it is, should always be a
 ## literal string, not an expression.
 
-define config.save_directory = None
+define config.save_directory = "aliyas-ascent" if renpy.emscripten else None
 
 
 ## Icon ########################################################################
