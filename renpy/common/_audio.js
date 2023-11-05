@@ -511,10 +511,14 @@ renpyAudio.queue = (channel, file, name, paused, fadein, tight, start, end, rela
 renpyAudio.stop = (channel) => {
     let c = get_channel(channel);
     c.queued = null;
-    if (c.video) {
-        video_stop(c);
-    } else {
-        stop_playing(c);
+    try {
+        if (c.video) {
+            video_stop(c);
+        } else {
+            stop_playing(c);
+        }
+    } catch (e) {
+        console.warn(e);
     }
 };
 
